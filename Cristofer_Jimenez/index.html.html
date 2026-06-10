@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AutoElite | Concesionario de Autos</title>
+    <style>
+        /* Paleta de Colores y Variables */
+        :root {
+            --color-fondo: #000000;      /* Negro */
+            --color-primario: #000080;   /* Azul Marino */
+            --color-secundario: #0a192f; /* Azul Marino Oscuro para contrastes */
+            --color-texto: #ffffff;      /* Blanco para legibilidad */
+            --color-hover: #1a365d;      /* Azul Marino Claro para interacciones */
+        }
+
+        /* Estilos Generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--color-fondo);
+            color: var(--color-texto);
+            line-height: 1.6;
+        }
+
+        /* Navegación (Menú) */
+        nav {
+            background-color: var(--color-primario);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.5);
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--color-texto);
+            text-decoration: none;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+        }
+
+        .nav-links li {
+            position: relative;
+        }
+
+        .nav-links a {
+            color: var(--color-texto);
+            text-decoration: none;
+            padding: 1rem;
+            display: block;
+            transition: background 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            background-color: var(--color-hover);
+        }
+
+        /* Submenú (Links secundarios) */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            background-color: var(--color-secundario);
+            top: 100%;
+            left: 0;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.8);
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-menu li {
+            width: 100%;
+        }
+
+        /* Sección Hero (Encabezado principal) */
+        .hero {
+            background: linear-gradient(to bottom, var(--color-secundario), var(--color-fondo));
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            color: #cccccc;
+        }
+
+        /* Sección Portafolio */
+        .portafolio-section {
+            padding: 5rem 5%;
+            background-color: var(--color-fondo);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--color-texto);
+            border-bottom: 3px solid var(--color-primario);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .title-container {
+            text-align: center;
+        }
+
+        .grid-portafolio {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card-auto {
+            background-color: var(--color-secundario);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--color-primario);
+        }
+
+        .card-auto:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 128, 0.4);
+        }
+
+        .card-auto img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-bottom: 2px solid var(--color-primario);
+        }
+
+        .card-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .card-info h3 {
+            margin-bottom: 0.5rem;
+            color: var(--color-texto);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--color-secundario);
+            text-align: center;
+            padding: 2rem;
+            border-top: 2px solid var(--color-primario);
+            margin-top: auto;
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="logo">AUTOELITE</a>
+        <ul class="nav-links">
+            <li><a href="#inicio">Inicio</a></li>
+            
+            <li class="dropdown">
+                <a href="#categorias">Categorías ▼</a>
+                <ul class="dropdown-menu">
+                    <li><a href="#electricos">Autos Eléctricos</a></li>
+                    <li><a href="#combustion">Autos a Combustión</a></li>
+                </ul>
+            </li>
+            
+            <li><a href="#portafolio">Portafolio</a></li>
+            
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <header id="inicio" class="hero">
+        <h1>El Futuro de la Movilidad</h1>
+        <p>Descubre nuestra selección premium de vehículos. Innovación, diseño y potencia en color azul marino y negro.</p>
+    </header>
+
+    <section id="portafolio" class="portafolio-section">
+        <div class="title-container">
+            <h2 class="section-title">Nuestro Portafolio Destacado</h2>
+        </div>
+        
+        <div class="grid-portafolio">
+            <div class="card-auto">
+                <img src="BYD-Trancision-Autos-Electricos-EC.1.png" alt="BYD Vehículo Eléctrico Blanco">
+                <div class="card-info">
+                    <h3>BYD Eléctrico Compacto</h3>
+                    <p>Eficiencia urbana y diseño vanguardista.</p>
+                </div>
+            </div>
+
+            <div class="card-auto">
+                <img src="KIA-AUTOS-ELECTRICOS-1024x683.jpg" alt="KIA EV5 Celeste">
+                <div class="card-info">
+                    <h3>KIA SUV Eléctrico</h3>
+                    <p>Espacio, tecnología y cero emisiones.</p>
+                </div>
+            </div>
+
+            <div class="card-auto">
+                <img src="autos-electricos-mex.jpg" alt="Sedan Deportivo Blanco">
+                <div class="card-info">
+                    <h3>Sedán Deportivo Premium</h3>
+                    <p>Aerodinámica perfecta para el máximo rendimiento.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Contacto y Asesor -->
+    <section id="contacto" class="contacto-section">
+        <div class="title-container">
+            <h2 class="section-title">Contáctanos</h2>
+        </div>
+        
+        <!-- Tarjeta del Asesor -->
+        <div class="asesor-card">
+            <div class="asesor-icono">👤</div>
+            <div class="asesor-detalles">
+                <h3>Cristofer Jiménez</h3>
+                <p class="asesor-cargo">Asesor Comercial Automotriz</p>
+                <p class="asesor-ubicacion">Atención personalizada y agendamiento de pruebas de manejo en Quito y sus alrededores.</p>
+            </div>
+        </div>
+
+        <div class="contacto-info">
+            <p>Comunícate directamente conmigo para recibir asesoría inmediata:</p>
+            
+            <div class="botones-contacto">
+                <a href="tel:+593997076189" class="btn-contacto">📞 Llamar Directo</a>
+                <a href="https://wa.me/593997076189" class="btn-contacto btn-whatsapp">💬 Escribir al WhatsApp</a>
+            </div>
+        </div>
+    </section>
